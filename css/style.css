@@ -10,8 +10,10 @@
   --space-xl: 4.8rem;
   --space-xxl: 6.4rem;
   --background: hsl(0, 10%, 94%);
-  --color-white: hsl(0, 0%, 3%);
-  --color-white-80: hsl(0, 0%, 11%);
+  --color-white : #ffffff;
+  --color-black : #000;
+  --color-primary: hsl(0, 0%, 3%);
+  --color-primary-80: hsl(0, 0%, 11%);
   --color-black-80: hsla(0, 0%, 3%, 0.904);
 }
 
@@ -33,12 +35,12 @@ h3,
 h4,
 h5,
 h6 {
-  color: var(--color-white);
+  color: var(--color-primary);
 }
 
 p {
   font-weight: 300;
-  color: var(--color-white-80);
+  color: var(--color-primary-80);
 }
 
 .u-f {
@@ -73,6 +75,9 @@ p {
   gap: 3rem;
 }
 
+.mb-2 {
+  margin-bottom: 2rem;
+}
 .mb-4 {
   margin-bottom: 4rem;
 }
@@ -81,10 +86,13 @@ p {
   margin-top: 3rem;
 }
 
+.u-pd{
+  padding: var(--space-md);
+}
+
 body {
   background-color: var(--background);
   font-size: 1.6rem;
-  padding: var(--space-md);
   color: var(--text-color);
   overflow-x: hidden !important;
 }
@@ -95,7 +103,7 @@ body {
 }
 
 .nav__links > li > a {
-  color: var(--color-white);
+  color: var(--color-primary);
   font-size: var(--space-link);
   text-decoration: none;
 }
@@ -106,7 +114,7 @@ body {
 }
 
 .main__content {
-  margin: clamp(8rem, 5vw, 10rem) 0 3rem 0;
+  margin: clamp(8rem, 5vw, 10rem)  0;
 }
 
 .main__content-heading {
@@ -117,30 +125,30 @@ body {
 .main__content-text {
   margin-top: 2.4rem;
   font-size: var(--space-base);
-  margin-bottom: 1.4rem;
+  margin-bottom: 2.4rem !important;
 }
 
 /* Button styles */
 .btn {
   text-decoration: none;
-  color: var(--color-white);
+  color: var(--color-primary);
   font-size: var(--space-base);
   width: max-content;
-  border-bottom: 1px solid var(--color-white-80);
+  border-bottom: 1px solid var(--color-primary-80);
 }
 
 .btn--primary {
   padding: var(--space-xxs) 0;
-  background-color: black;
+  background-color: var(--color-black);
   padding: 1rem 1.5rem;
-  color: white;
+  color: var(--color-white);
   border-radius: 0.5rem;
 }
 
 .btn--secondary {
-  background-color: black;
+  background-color: var(--color-black);
   padding: 1rem 1.5rem;
-  color: white !important;
+  color: var(--color-white) !important;
   border-radius: 0.5rem;
 }
 
@@ -167,6 +175,7 @@ body {
   grid-template-columns: repeat(auto-fit, minmax(30rem, 1fr));
   gap: 2rem;
   margin: 10rem 0;
+  overflow-x: hidden;
   position: relative;
 }
 
@@ -185,19 +194,18 @@ body {
   padding: 3rem;
   background: rgba(255, 255, 255, 0.25);
   backdrop-filter: blur(4px);
-  -webkit-backdrop-filter: blur(4px);
   box-shadow: rgba(17, 17, 26, 0.05) 0px 4px 16px,
     rgba(17, 17, 26, 0.05) 0px 8px 32px;
   border-radius: 1rem;
   min-height: 40rem;
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
+  justify-content: space-between !important;
+  overflow: hidden;
+  cursor: pointer;
 }
 
-.service__content {
-  transition: all 0.4s ease;
-}
+
 
 .service > img {
   width: 5rem;
@@ -224,7 +232,7 @@ body {
 
 .service__content > p,
 h2 {
-  color: black;
+  color: var(--color-black);
 }
 
 .service__details {
@@ -232,9 +240,9 @@ h2 {
 }
 
 .service__content > .btn {
-  color: black;
+  color: var(--color-black);
   margin: 2rem 0;
-  border-bottom: 1px solid black;
+  border-bottom: 1px solid var(--color-black);
   font-weight: 600;
 }
 
@@ -244,7 +252,7 @@ h2 {
   display: flex;
   justify-content: center;
   align-items: center;
-  gap: 2rem;
+  gap: 1rem;
   margin: 10rem 0;
   position: relative;
 }
@@ -267,20 +275,25 @@ h2 {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  min-height: 40rem;
-  max-width: 30rem;
+  min-height: clamp(30rem, 35vw, 40rem);
+  max-width: clamp(25rem, 25vw, 30rem);
   background: rgba(255, 255, 255, 0.25);
   backdrop-filter: blur(4px);
   -webkit-backdrop-filter: blur(4px);
   box-shadow: rgba(17, 17, 26, 0.05) 0px 4px 16px,
     rgba(17, 17, 26, 0.05) 0px 8px 32px;
   border-radius: 1rem;
+  text-align: center;
 }
 
-.pricing > article:nth-child(2) {
+.pricing  article:nth-child(2) {
   background-color: #51ec92;
   scale: 1.2;
-  z-index: 1;
+  z-index: 11;
+}
+
+.pricing-tier > h2 {
+  padding: var(--space-md);
 }
 
 .pricing-tier > p {
@@ -290,7 +303,7 @@ h2 {
 
 .pricing-tier ul {
   list-style: none;
-  margin: 1rem;
+  margin: var(--space-base);
   text-align: center;
   font-size: var(--space-link);
 }
@@ -301,8 +314,12 @@ h2 {
   margin: 2rem 0;
   border-radius: 0.5rem;
   padding: 1rem 1.5rem;
-  background-color: black;
-  color: white;
+  background-color: var(--color-black);
+  color: var(--color-white);
+}
+
+.price{
+  font-weight: 500;
 }
 
 /* Newsletter section styles */
@@ -312,7 +329,7 @@ h2 {
 }
 
 .newsletter > h2 {
-  color: var(--color-white);
+  color: var(--color-primary);
   font-size: var(--space-md);
   text-align: center;
 }
@@ -331,20 +348,20 @@ form > input {
   all: unset;
   background-color: rgba(255, 255, 255, 0.116);
   padding: 1rem 1.5rem;
-  color: var(--color-white-80);
+  color: var(--color-primary-80);
   border-radius: 0.5rem 0 0 0.5rem;
   font-size: var(--space-base);
   border: 1px solid rgba(37, 37, 37, 0.164);
-  width: clamp(13rem, 20vw, 21vw);
+  width: clamp(16rem, 20vw, 21vw);
 }
 
 form > .submit {
   all: unset;
-  color: white;
+  color: var(--color-white);
   cursor: pointer;
   border-radius: 0 0.5rem 0.5rem 0rem;
   font-size: var(--space-base);
-  background-color: var(--color-white);
+  background-color: var(--color-primary);
   padding: 1rem;
   margin-left: -1rem;
 }
@@ -366,7 +383,7 @@ footer {
 .contact h2,
 .resources h2,
 .social h2 {
-  color: black;
+  color: var(--color-black);
   font-size: var(--space-md);
   margin: 0;
 }
@@ -395,7 +412,7 @@ footer {
 .contact a:hover,
 .resources a:hover,
 .social a:hover {
-  border-bottom: 1px solid black;
+  border-bottom: 1px solid var(--color-black);
 }
 
 .copyright {
@@ -405,6 +422,7 @@ footer {
 }
 
 @media screen and (max-width: 768px) {
+  
   .pricing::after {
     display: none;
   }
@@ -424,17 +442,41 @@ footer {
 @media screen and (max-width: 480px) {
   .pricing {
     flex-direction: column;
-    gap: .3rem !important;
+    gap: 0.3rem !important;
+  }
+      
+  .nav__links > li:nth-child(1) {
+    display: none;
   }
   .pricing-tier {
-    margin: 2rem 0;
+    margin: .5rem 0;
     gap: 0.5rem;
     scale: 0.9 !important;
   }
   .pricing-tier:nth-child(2) {
     margin: 0;
   }
-  .nav__links > li:nth-child(1) {
-    display: none;
+  .contact,
+  .resources,
+  .social {
+    padding: 0.5rem;
   }
 }
+@media screen and (orientation: landscape) {
+  .pricing {
+    flex-direction: row;
+    gap: 2rem ;
+  }
+  
+    .pricing-tier {
+      margin: 2rem 0;
+      gap: 0.5rem;
+    }
+
+    .contact,
+    .resources,
+    .social {
+      padding: 2rem;
+    }
+  }
+
